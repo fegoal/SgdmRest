@@ -1,0 +1,302 @@
+{
+	"info": {
+		"_postman_id": "3dcb3a01-85df-4f07-8c15-597d2d4e4ba6",
+		"name": "API REST SpringBoot",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ARTICULOS",
+			"item": [
+				{
+					"name": "[ARTICULOS] - POST Articulos",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"nombre\":\"Articulo1\",\r\n\t\"modelo\":\"Modelo22\",\r\n\t\"pvp\":\"1250.324\",\r\n\t\"validoDesde\":\"1961\",\r\n\t\"validoHasta\":\"2015\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/articulos/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"articulos",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[ARTICULOS]  - GET ALL",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/articulos/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"articulos",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[ARTICULOS]  - GET Articulo",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/articulos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"articulos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[ARTICULOS] - PUT Articulo",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"nombre\":\"Articulo 1\",\r\n\t\"modelo\":\"modelo 3456677 ficado\",\r\n\t\"pvp\":\"1250.34\",\r\n\t\"validoDesde\":\"1968\",\r\n\t\"validoHasta\":\"2020\"\r\n\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/articulos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"articulos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[ARTICULOS:ESTANTERIAS]-PUT",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"disabled": false,
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"links\": [],\r\n        \"nombre\": \"Articulo modificado\",\r\n        \"modelo\": \"Modelo modificado\",\r\n        \"pvp\": \"1250.324\",\r\n        \"validoDesde\": \"1961\",\r\n        \"validoHasta\": \"2015\"\r\n }"
+						},
+						"url": {
+							"raw": "http://localhost:8080/articulos/1/estanterias/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"articulos",
+								"1",
+								"estanterias",
+								"2"
+							]
+						},
+						"description": "Asocia una estanteria a un articulo"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ESTANTERIAS",
+			"item": [
+				{
+					"name": "ESTANTERIOAS - POST Estanterias",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"nombre\":\"Estanteria 1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/estanterias/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"estanterias",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ESTANTERIAS  - GET Estanteria",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/estanterias/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"estanterias",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ESTANTERIAS  - PUT Estanteria",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nombre\": \"Estanteria we1\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/estanterias/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"estanterias",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[ESTANTERIAS]  - GET ALL",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/estanterias/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"estanterias",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
