@@ -48,7 +48,7 @@ public class ArticulosServiceImpl implements ArticulosService {
 		
 		Optional<ArticuloBean> bean = this.getByIdent(id);
 		bean.orElseThrow(() -> new ResourceNotFoundException("ARTICULO NO ENCONTRADO"));
-		BeanUtils.copyProperties(articuloBean, bean, IGNORE_PROPERTIES);
+		BeanUtils.copyProperties(articuloBean, bean.get(), IGNORE_PROPERTIES);
 		repository.save(mapper.toDto(bean.get()));
 		return bean;
 	}
@@ -60,7 +60,7 @@ public class ArticulosServiceImpl implements ArticulosService {
 		Optional <EstanteriaBean> estanteriaBean  = estanteriasService.getByIdent(id_estanteria);
 		bean.orElseThrow(() -> new ResourceNotFoundException("ARTICULO NO ENCONTRADO"));
 		bean.get().setEstanteria(estanteriaBean.get());
-		BeanUtils.copyProperties(articuloBean, bean, IGNORE_PROPERTIES);
+		BeanUtils.copyProperties(articuloBean, bean.get(), IGNORE_PROPERTIES);
 		repository.save(mapper.toDto(bean.get()));
 		return bean;
 	}

@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.hateoas.Link;
 import org.springframework.hateoas.Resource;
+import org.springframework.hateoas.Resources;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -60,7 +61,7 @@ public class ArticulosRestControllerImpl implements ArticulosRestController {
 	}
 
 	@Override
-	public List<Resource<ArticuloBean>> getAll() {
+	public Resources<Resource<ArticuloBean>> getAll() {
 		logger.debug("/articulos - [getAll] - GET:");
 		return this.addLinks(service.getAll());
 	}
@@ -72,6 +73,19 @@ public class ArticulosRestControllerImpl implements ArticulosRestController {
 		return addLink(service.getByIdent(id));
 	}
 
+	@Override
+	public Resource<ArticuloBean> getByName(String nombre) {
+		logger.debug("/articulos - [getByName] - GET:" + "name:" + nombre);
+		return addLink(service.getByNombre(nombre));
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	private Resource<ArticuloBean> addLink(ArticuloBean bean) {
@@ -91,13 +105,14 @@ public class ArticulosRestControllerImpl implements ArticulosRestController {
 		return this.addLink(bean.get());
 	}
 	
-	private List<Resource<ArticuloBean>> addLinks(List<ArticuloBean> beans) {
+	private Resources<Resource<ArticuloBean>> addLinks(List<ArticuloBean> beans) {
 		List<Resource<ArticuloBean>> al = new ArrayList<Resource<ArticuloBean>>();
 		for(ArticuloBean bean: beans) {
 			al.add(addLink(bean));
 		}
-		return al;
+		return new Resources<>(al);
 	}
+	
 	public ObjectMapper getJsontMapper() {
 		return jsonMapper;
 	}
@@ -115,5 +130,7 @@ public class ArticulosRestControllerImpl implements ArticulosRestController {
 	public void setService(ArticulosService service) {
 		this.service = service;
 	}
+
+
 
 }

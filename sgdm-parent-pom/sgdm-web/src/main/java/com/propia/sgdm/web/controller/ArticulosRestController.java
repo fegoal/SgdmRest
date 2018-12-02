@@ -3,27 +3,33 @@ package com.propia.sgdm.web.controller;
 import java.util.List;
 
 import org.springframework.hateoas.Resource;
+import org.springframework.hateoas.Resources;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-
+import org.springframework.web.bind.annotation.RequestParam;
 import com.propia.sgdm.service.bean.ArticuloBean;
-
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+
 @Api(value = "ARTICULOS microservice", description = "API to manage Articulos")
 public interface ArticulosRestController {
 	
 	@GetMapping(path="/", produces = "application/json")
 	@ApiOperation(value = "Obtiene todos Articulos", notes = "Return una lista de articulos" )
-	List<Resource<ArticuloBean>> getAll();
+	Resources<Resource<ArticuloBean>> getAll();
 	
 	@GetMapping(path="/{id}", produces = "application/json")
 	@ApiOperation(value = "Busca un articulo por su id", notes = "Return un articulo" )
 	Resource<ArticuloBean> getByIdent(@PathVariable("id") String id);
+	
+	@GetMapping(path="", produces = "application/json")
+	@ApiOperation(value = "Busca un articulo por su nombre", notes = "Return un articulo" )
+	Resource<ArticuloBean> getByName(@RequestParam("nombre") String name);
+
 	
 	@PutMapping(path="/{id}", consumes = "application/json", produces ="application/json")
 	@ApiOperation(value = "Modifica un articulo dado su id", notes = "Return el articulo" )
