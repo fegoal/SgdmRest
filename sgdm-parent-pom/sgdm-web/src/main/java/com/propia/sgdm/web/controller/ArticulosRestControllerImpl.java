@@ -23,8 +23,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.propia.sgdm.service.ArticulosService;
 import com.propia.sgdm.service.bean.ArticuloBean;
 
+import io.swagger.annotations.Api;
+
 @RestController
 @RequestMapping("/articulos")
+@Api(value = "ARTICULOS microserviceAPI: Expone recursos Articulos, Estanterias", consumes = "consumes=\"application/json", produces = "consumes=\"application/json")
 public class ArticulosRestControllerImpl implements ArticulosRestController {
 
 	Logger logger = LoggerFactory.getLogger(ArticulosRestControllerImpl.class);

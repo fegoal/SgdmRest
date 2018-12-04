@@ -15,11 +15,11 @@ import com.propia.sgdm.service.bean.ArticuloBean;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
-@Api(value = "ARTICULOS microservice", description = "API to manage Articulos")
+@Api(value = "ARTICULOS microserviceAPI: Expone recursos Articulos, Estanterias", consumes = "consumes=\"application/json", produces = "consumes=\"application/json")
 public interface ArticulosRestController {
 	
 	@GetMapping(path="/", produces = "application/json")
-	@ApiOperation(value = "Obtiene todos Articulos", notes = "Return una lista de articulos" )
+	@ApiOperation(value = "Obtiene todos Articulos", notes = "Cero o mas valores correspondientes a los articulos", response = ArticuloBean.class,   responseContainer = "List")
 	Resources<Resource<ArticuloBean>> getAll();
 	
 	@GetMapping(path="/{id}", produces = "application/json")
