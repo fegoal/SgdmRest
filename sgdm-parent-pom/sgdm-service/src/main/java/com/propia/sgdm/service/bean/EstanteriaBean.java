@@ -13,7 +13,7 @@ import lombok.Data;
 
 //@Data
 @AllArgsConstructor
-public class EstanteriaBean implements Serializable{
+public class EstanteriaBean extends ResourceSupport implements Serializable{
 
 	private static final long serialVersionUID = -5876548156701564108L;
 	@JsonProperty("indent")

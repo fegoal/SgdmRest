@@ -40,7 +40,7 @@ public class ArticulosServiceImpl implements ArticulosService {
 
 		Optional<ArticuloDto> dto = repository.findById(Integer.parseInt(id));
 		dto.orElseThrow(() -> new ResourceNotFoundException("ARTICULO NO ENCONTRADO"));
-		return  Optional.ofNullable(mapper.toBean(dto.get()));
+		return  mapper.toBean(dto);
 	}
 	
 	@Override
@@ -71,7 +71,7 @@ public class ArticulosServiceImpl implements ArticulosService {
 		
 		Optional<ArticuloDto> dto  = repository.findByNombre(nombre);
 		dto.orElseThrow(() -> new ResourceNotFoundException("ARTICULO NO ENCONTRADO"));
-		return Optional.ofNullable(mapper.toBean(dto.get()));
+		return mapper.toBean(dto);
 	}
 	
 	@Override
